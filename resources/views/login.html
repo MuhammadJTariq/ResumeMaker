@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/resources/css/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell auth-shell">
+      <header class="topbar">
+        <a class="site-brand" href="/login">ResumeMaker</a>
+        <a class="ghost-action auth-link-button" href="/register">Register</a>
+      </header>
+
+      <main class="auth-layout">
+        <section class="dashboard-card auth-card">
+          <p class="eyebrow">Welcome Back</p>
+          <h1 class="account-title">Login</h1>
+          <p class="support-copy">Use your email and password to access your ResumeMaker account.</p>
+
+          <form class="auth-form" id="login-form">
+            <div class="form-grid">
+              <div class="field-group full-width">
+                <label for="login-email">Email</label>
+                <input id="login-email" name="email" type="email" required />
+              </div>
+              <div class="field-group full-width">
+                <label for="login-password">Password</label>
+                <input id="login-password" name="password" type="password" required />
+              </div>
+            </div>
+            <button class="primary-action" type="submit">Login</button>
+          </form>
+
+          <p class="export-note" id="login-status">Enter your credentials to sign in.</p>
+        </section>
+      </main>
+    </div>
+
+    <script src="/resources/js/login-page.js"></script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Settings</title>
+    <link rel="stylesheet" href="/resources/css/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="site-brand" href="/">ResumeMaker</a>
+        <button class="ghost-action nav-button" type="button" id="back-home-button">
+          Back to Dashboard
+        </button>
+      </header>
+
+      <main class="account-layout">
+        <section class="dashboard-card account-summary-card">
+          <p class="eyebrow">Account</p>
+          <h1 class="account-title">Account settings</h1>
+          <p class="support-copy">
+            Review and update your profile information, subscription, and account status.
+          </p>
+        </section>
+
+        <section class="dashboard-card account-form-card">
+          <div class="account-fields" id="account-fields"></div>
+          <div class="account-danger-zone">
+            <div>
+              <p class="eyebrow">Account Actions</p>
+              <h2>Account</h2>
+            </div>
+            <div class="danger-actions">
+              <button class="ghost-action" type="button" id="deactivate-account-button">
+                Deactivate
+              </button>
+              <button class="danger-button" type="button" id="delete-account-button">
+                Delete Account
+              </button>
+            </div>
+            <p class="export-note" id="account-status-message">Account is active.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/resources/js/account-settings.js"></script>
+  </body>
+</html>

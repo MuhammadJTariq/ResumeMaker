@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="/resources/css/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell auth-shell">
+      <header class="topbar">
+        <a class="site-brand" href="/register">ResumeMaker</a>
+        <a class="ghost-action auth-link-button" href="/login">Login</a>
+      </header>
+
+      <main class="auth-layout">
+        <section class="dashboard-card auth-card">
+          <p class="eyebrow">Create Account</p>
+          <h1 class="account-title">Register</h1>
+          <p class="support-copy">Create a ResumeMaker account and save your profile in MySQL.</p>
+
+          <form class="auth-form" id="registration-form">
+            <div class="form-grid">
+              <div class="field-group">
+                <label for="register-first-name">First Name</label>
+                <input id="register-first-name" name="firstName" required />
+              </div>
+              <div class="field-group">
+                <label for="register-last-name">Last Name</label>
+                <input id="register-last-name" name="lastName" required />
+              </div>
+              <div class="field-group">
+                <label for="register-email">Email</label>
+                <input id="register-email" name="email" type="email" required />
+              </div>
+              <div class="field-group">
+                <label for="register-password">Password</label>
+                <input id="register-password" name="password" type="password" required />
+              </div>
+              <div class="field-group full-width">
+                <label for="register-address">Address</label>
+                <input id="register-address" name="address" required />
+              </div>
+              <div class="field-group">
+                <label for="register-profession">Profession</label>
+                <input id="register-profession" name="profession" />
+              </div>
+              <div class="field-group">
+                <label for="register-phone">Phone Number</label>
+                <input id="register-phone" name="phoneNumber" />
+              </div>
+            </div>
+            <button class="primary-action" type="submit">Register</button>
+          </form>
+
+          <p class="export-note" id="registration-status">Fill the form to create a new account.</p>
+        </section>
+      </main>
+    </div>
+
+    <script src="/resources/js/registration-page.js"></script>
+  </body>
+</html>

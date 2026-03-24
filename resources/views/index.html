@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Maker Dashboard</title>
+    <link rel="stylesheet" href="/resources/css/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell" id="dashboard-page">
+      <header class="topbar">
+        <div class="topbar-brand">
+          <a class="site-brand" href="/">ResumeMaker</a>
+          <a class="ghost-action nav-link-button" href="/templates">Templates</a>
+        </div>
+
+        <div class="topbar-actions">
+          <div class="notification-menu" id="dashboard-notification-menu">
+            <button class="icon-button" type="button" id="notification-trigger" aria-label="Notifications" aria-expanded="false" aria-haspopup="true">
+              <span class="notification-dot hidden" id="notification-dot"></span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 3.75a4.25 4.25 0 0 0-4.25 4.25v1.2c0 .82-.25 1.62-.71 2.3l-1.11 1.63A1.75 1.75 0 0 0 7.38 16h9.24a1.75 1.75 0 0 0 1.45-2.87l-1.11-1.63a4.02 4.02 0 0 1-.71-2.3V8A4.25 4.25 0 0 0 12 3.75Zm0 17.5a2.5 2.5 0 0 1-2.45-2h4.9a2.5 2.5 0 0 1-2.45 2Z"
+                />
+              </svg>
+            </button>
+            <div class="notification-dropdown hidden" id="notification-dropdown">
+              <div class="notification-dropdown-header">
+                <strong>Notifications</strong>
+                <span class="notification-count" id="notification-count">0</span>
+              </div>
+              <div class="notification-list" id="notification-list">
+                <p class="notification-empty">No notifications yet.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-menu" id="dashboard-profile-menu">
+            <button class="profile-chip" type="button" id="dashboard-profile-trigger" aria-expanded="false" aria-haspopup="true">
+              <span class="profile-avatar">MA</span>
+              <span class="profile-copy">
+                <strong id="dashboard-profile-name">User</strong>
+                <small id="dashboard-profile-plan">Account</small>
+              </span>
+            </button>
+            <div class="profile-dropdown hidden" id="dashboard-profile-dropdown">
+              <button class="dropdown-item" type="button" id="account-settings-button">
+                Account Settings
+              </button>
+              <button class="dropdown-item" type="button" id="logout-button">
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard-grid">
+        <section class="primary-column">
+          <div class="hero-card">
+            <p class="eyebrow">Dashboard</p>
+            <h1>Build resumes and cover letters from one workspace.</h1>
+            <p class="hero-copy">
+              Track recent drafts, start a fresh resume, and create a tailored
+              cover letter in a few clicks.
+            </p>
+          </div>
+
+          <div class="split-panels">
+            <section class="dashboard-card">
+              <div class="card-header">
+                <div>
+                  <p class="eyebrow">Resume Tools</p>
+                  <h2>Recent resumes</h2>
+                </div>
+              </div>
+
+              <div class="resume-list" id="resume-list"></div>
+
+              <button class="primary-action" type="button" id="create-resume-button">
+                + Create New Resume
+              </button>
+              <button class="ghost-action choose-template-action" type="button" id="choose-template-button">
+                Choose From Templates
+              </button>
+            </section>
+
+            <section class="dashboard-card accent-card">
+              <div class="card-header">
+                <div>
+                  <p class="eyebrow">Cover Letters</p>
+                  <h2>Create your first cover letter</h2>
+                </div>
+              </div>
+
+              <p class="support-copy">
+                Generate a personalized cover letter that matches the role and
+                your latest resume draft.
+              </p>
+
+              <button class="secondary-action" type="button">
+                Create New Cover Letter
+              </button>
+            </section>
+          </div>
+        </section>
+
+        <aside class="sidebar">
+          <section class="dashboard-card sidebar-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Quick Overview</p>
+                <h2>Workspace summary</h2>
+              </div>
+            </div>
+
+            <div class="metric-stack">
+              <article class="metric-card">
+                <span class="metric-value">12</span>
+                <span class="metric-label">Saved resumes</span>
+              </article>
+              <article class="metric-card">
+                <span class="metric-value">4</span>
+                <span class="metric-label">Active applications</span>
+              </article>
+              <article class="metric-card">
+                <span class="metric-value">89%</span>
+                <span class="metric-label">Profile completeness</span>
+              </article>
+            </div>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <div class="page-shell hidden" id="resume-page">
+      <header class="topbar">
+        <button class="ghost-action nav-button" type="button" id="back-to-dashboard">
+          Back to Dashboard
+        </button>
+        <div class="topbar-actions">
+          <button class="profile-chip" type="button">
+            <span class="profile-avatar">RM</span>
+            <span class="profile-copy">
+              <strong>Resume Preview</strong>
+              <small id="resume-page-id"></small>
+            </span>
+          </button>
+        </div>
+      </header>
+
+      <main class="resume-detail-layout">
+        <section class="resume-preview-panel">
+          <div class="resume-preview-sheet" id="resume-preview"></div>
+          <div class="resume-export-actions">
+            <button class="primary-action export-button" type="button" id="download-pdf-button">
+              Download PDF
+            </button>
+            <p class="export-note" id="download-status">Export the current resume template as a PDF.</p>
+          </div>
+        </section>
+
+        <aside class="resume-editor-panel">
+          <div class="dashboard-card editor-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Edit Options</p>
+                <h2>Update resume content</h2>
+              </div>
+            </div>
+            <div id="resume-editor"></div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <div class="modal-shell hidden" id="resume-modal" aria-hidden="true">
+      <div class="modal-backdrop" id="modal-backdrop"></div>
+      <section class="resume-modal-card" aria-labelledby="resume-modal-title">
+        <div class="modal-topbar">
+          <div>
+            <p class="eyebrow">Resume Builder</p>
+            <h2 id="resume-modal-title">Create a new resume</h2>
+            <p class="modal-subcopy" id="resume-id-copy"></p>
+          </div>
+          <button class="close-button" type="button" id="close-modal-button" aria-label="Close resume builder">
+            X
+          </button>
+        </div>
+
+        <div class="stepper" id="stepper"></div>
+
+        <div class="step-content" id="step-content"></div>
+
+        <div class="modal-actions">
+          <button class="ghost-action" type="button" id="back-button">Back</button>
+          <button class="primary-action modal-primary" type="button" id="next-button">
+            Save and Continue
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <div class="modal-shell hidden" id="template-modal" aria-hidden="true">
+      <div class="modal-backdrop" id="template-modal-backdrop"></div>
+      <section class="resume-modal-card template-modal-card">
+        <div class="modal-topbar">
+          <div>
+            <p class="eyebrow">Resume Templates</p>
+            <h2>Choose a template</h2>
+            <p class="modal-subcopy">Pick one of the stored templates to start with that layout.</p>
+          </div>
+          <button class="close-button" type="button" id="close-template-modal-button" aria-label="Close template picker">
+            X
+          </button>
+        </div>
+        <div class="template-grid" id="template-grid"></div>
+      </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="/resources/js/script.js"></script>
+    <script src="/resources/js/notifications.js"></script>
+  </body>
+</html>
