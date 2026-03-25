@@ -1,3 +1,5 @@
+
+
 const backHomeButton = document.getElementById("back-home-button");
 const accountFields = document.getElementById("account-fields");
 const deactivateAccountButton = document.getElementById("deactivate-account-button");

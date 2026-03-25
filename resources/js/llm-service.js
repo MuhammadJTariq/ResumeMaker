@@ -5,11 +5,11 @@ class LLMService {
     this.baseUrl = "https://generativelanguage.googleapis.com/v1beta/models";
   }
 
-  isConfigured() {
+  static isConfigured() {
     return Boolean(this.apiKey);
   }
 
-  async generateText({ input, instructions = "", model }) {
+  static async generateText({ input, instructions = "", model }) {
     if (!this.isConfigured()) {
       throw new Error("GEMINI_API_KEY is not configured.");
     }
